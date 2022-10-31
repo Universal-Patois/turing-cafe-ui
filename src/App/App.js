@@ -26,7 +26,6 @@ class App extends Component {
 
   cancelReservation = (id) => {
     const filterReservation = this.state.reservations.filter(reservation => {
-      console.log(id)
       return reservation.id !== id
     })
     this.setState({reservations: filterReservation})
