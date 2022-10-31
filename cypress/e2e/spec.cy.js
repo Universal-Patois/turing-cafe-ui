@@ -32,5 +32,12 @@ describe('cafe test', () => {
     
   })
 
+  it('should show when a user types into the reservation form', () => {
+    cy.get('[placeholder="Name"]').type('Andrew').should('have.value', 'Andrew')
+    cy.get('[placeholder="Date(mm/dd)"]').type('10/16').should('have.value', '10/16')
+    cy.get('[placeholder="Time"]').type(730).should('have.value', '730')
+    cy.get('[type="number"]').type(2).should('have.value', 2)
+  })
+
 })
-//* Write a test that checks that when data is put into the form, the value is reflected in that form input.
+
