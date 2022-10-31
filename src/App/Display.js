@@ -2,7 +2,7 @@ import React from 'react';
 import Reservation from './Reservation';
 import './Display.css'
 
-const Display = ({reservations}) => {
+const Display = ({reservations, cancelReservation}) => {
 
   const cafeReservations = reservations.map(reservation => {
     return (
@@ -11,7 +11,9 @@ const Display = ({reservations}) => {
         name={reservation.name}
         time={reservation.time}
         guests={reservation.number}
+        id={reservation.id}
         key={reservation.id}
+        cancelReservation={cancelReservation}
       />
     )
   })
