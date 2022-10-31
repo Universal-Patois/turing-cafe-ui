@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Display from './Display';
 
 class App extends Component {
   constructor() {
@@ -8,20 +9,6 @@ class App extends Component {
       reservations: []
     }
   }
-  render() {
-    return (
-      <div className="App">
-        <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-
-        </div>
-        <div className='resy-container'>
-          
-        </div>
-      </div>
-    )
-  }
-
   componentDidMount = () => {
     this.fetchReservations()
   }
@@ -30,6 +17,20 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/reservations')
     .then(response => response.json())
     .then(data => this.setState({reservations: data}))
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1 className='app-title'>Turing Cafe Reservations</h1>
+        <div className='resy-form'>
+
+        </div>
+        <div className='resy-container'>
+          <Display reservations={this.state.reservations}/>
+        </div>
+      </div>
+    )
   }
 }
 
