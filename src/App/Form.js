@@ -16,10 +16,25 @@ class Form extends Component {
     this.setState({ [event.target.name]: event.target.value})
   }
 
+  submitReservation = (event) => {
+    event.preventDefault()
+    const newReservation = {
+      id: Date.now(),
+      ...this.state
+    }
+    this.props.addReservation(newReservation)
+    this.clearInputs()
+  }
+
+  clearInputs = () => {
+    this.setState({name: '', date: '', time: '', guests: ''})
+  }
+
   render() {
     return (
       <form>
         <input 
+          className="input"
           type='text'
           placeholder="Name"
           name='name'
@@ -28,6 +43,7 @@ class Form extends Component {
         />
 
         <input 
+          className="input"
           type='text'
           placeholder='Date(mm/dd)'
           name='date'
@@ -36,6 +52,7 @@ class Form extends Component {
         />
 
         <input 
+          className="input"
           type='text'
           placeholder="Time"
           name='time'
@@ -43,17 +60,20 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
         />
 
-        <input 
-          type='text'
+        <input
+          className="input" 
+          type='number'
           placeholder="Number of Guests"
           name='guests'
           value={this.state.guests}
           onChange={event => this.handleChange(event)}
         />
 
-        
+        <button className='form-button' onClick={event => this.submitReservation(event)}>Make Reservation</button>
 
       </form>
     )
   }
 }
+
+export default Form;

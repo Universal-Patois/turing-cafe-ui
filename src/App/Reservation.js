@@ -7,7 +7,7 @@ const Reservation = ({date, name, time, guests, id}) => {
       <h2>{name}</h2>
       <h3>{date}</h3>
       <h3>{time}</h3>
-      <h3>Number of guests: {guests}</h3>
+      <p>Number of guests:{guests}</p>
       <button className="cancel">Cancel</button>
     </div>
   )
