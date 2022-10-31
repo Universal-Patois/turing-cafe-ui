@@ -8,7 +8,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      guests: ''
+      number: ''
     }
   }
 
@@ -64,8 +64,8 @@ class Form extends Component {
           className="input" 
           type='number'
           placeholder="Number of Guests"
-          name='guests'
-          value={this.state.guests}
+          name='number'
+          value={this.state.number}
           onChange={event => this.handleChange(event)}
         />
 

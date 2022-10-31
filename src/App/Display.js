@@ -10,7 +10,7 @@ const Display = ({reservations, cancelReservation}) => {
         date={reservation.date}
         name={reservation.name}
         time={reservation.time}
-        guests={reservation.number}
+        number={reservation.number}
         id={reservation.id}
         key={reservation.id}
         cancelReservation={cancelReservation}
